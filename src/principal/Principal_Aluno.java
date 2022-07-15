@@ -1,5 +1,8 @@
 package principal;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -7,9 +10,12 @@ import entidades.Aluno;
 
 public class Principal_Aluno {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+		Date d1 = new Date(System.currentTimeMillis());
 
 		char resp;
 
@@ -49,40 +55,46 @@ public class Principal_Aluno {
 			for (int i = 0; i < num; i++) {
 				if (vet[i].mediaSemestre1() >= 7.0) {
 					String nome = vet[i].getNome().toUpperCase();
-					System.out.printf("%s, VOCÊ ESTÁ APROVADO NO SEMESTRE 1 COM MÉDIA: %.1f%n", nome, vet[i].mediaSemestre1());
+					System.out.printf("%s, VOCÊ ESTÁ APROVADO NO SEMESTRE 1 COM MÉDIA: %.1f%n", nome,
+							vet[i].mediaSemestre1());
 				} else {
 					String nome = vet[i].getNome().toUpperCase();
-					System.out.printf("%s, VOCÊ FICOU NA RECUPERAÇÃO DO SEMESTRE 1 COM MÉDIA: %.1f%n", nome, vet[i].mediaSemestre1());
+					System.out.printf("%s, VOCÊ FICOU NA RECUPERAÇÃO DO SEMESTRE 1 COM MÉDIA: %.1f%n", nome,
+							vet[i].mediaSemestre1());
 				}
 			}
-			
+
 			System.out.println("--------------------------------------------------");
 			System.out.println("*** MÉDIA DO 2º SEMESTRE ***");
-			
+
 			for (int i = 0; i < num; i++) {
 				if (vet[i].mediaSemestre2() >= 7.0) {
 					String nome = vet[i].getNome().toUpperCase();
-					System.out.printf("%s, VOCÊ ESTÁ APROVADO NO SEMESTRE 2 COM MÉDIA: %.1f%n", nome, vet[i].mediaSemestre2());
-				}else {
+					System.out.printf("%s, VOCÊ ESTÁ APROVADO NO SEMESTRE 2 COM MÉDIA: %.1f%n", nome,
+							vet[i].mediaSemestre2());
+				} else {
 					String nome = vet[i].getNome().toUpperCase();
-					System.out.printf("%s, VOCÊ FICOU NA RECUPERAÇÃO DO SEMESTRE 2 COM MÉDIA: %.1f%n", nome, vet[i].mediaSemestre2());
+					System.out.printf("%s, VOCÊ FICOU NA RECUPERAÇÃO DO SEMESTRE 2 COM MÉDIA: %.1f%n", nome,
+							vet[i].mediaSemestre2());
 				}
 			}
-			
+
 			System.out.println("--------------------------------------------------");
 			System.out.println("*** MÉDIA FINAL ***");
-			
-			for(int i = 0; i < num; i++) {
-				if(vet[i].mediaFinal() >= 7.0) {
+
+			for (int i = 0; i < num; i++) {
+				if (vet[i].mediaFinal() >= 7.0) {
 					String nome = vet[i].getNome().toUpperCase();
 					System.out.printf("%s, VOCÊ ESTÁ APROVADO DE ANO COM MÉDIA: %.1f%n", nome, vet[i].mediaFinal());
-				}else {
+				} else {
 					String nome = vet[i].getNome().toUpperCase();
-					System.out.printf("%s, VOCÊ FICOU NA RECUPERAÇÃO FINAL COM MÉDIA: %.1f%n", nome, vet[i].mediaFinal());
+					System.out.printf("%s, VOCÊ FICOU NA RECUPERAÇÃO FINAL COM MÉDIA: %.1f%n", nome,
+							vet[i].mediaFinal());
 				}
 			}
-			
-			
+			System.out.println();
+			System.out.println("LIMOEIRO, " + sdf1.format(d1));
+
 			System.out.println();
 			System.out.print("DESEJA REINICIAR O SISTEMA: ");
 			resp = sc.next().charAt(0);
