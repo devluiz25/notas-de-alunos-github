@@ -47,13 +47,12 @@ public class Principal_Aluno {
 			System.out.println("*** MÉDIA DO 1º SEMESTRE ***");
 
 			for (int i = 0; i < num; i++) {
-				double mediaSemestre1 = (vet[i].getNota1_semestre_1() + vet[i].getNota2_semestre_1()) / 2;
-				if (mediaSemestre1 >= 7.0) {
+				if (vet[i].mediaSemestre1() >= 7.0) {
 					String nome = vet[i].getNome().toUpperCase();
-					System.out.printf("%s, VOCÊ ESTÁ APROVADO NO SEMESTRE 1 COM MÉDIA: %.1f%n", nome, mediaSemestre1);
+					System.out.printf("%s, VOCÊ ESTÁ APROVADO NO SEMESTRE 1 COM MÉDIA: %.1f%n", nome, vet[i].mediaSemestre1());
 				} else {
 					String nome = vet[i].getNome().toUpperCase();
-					System.out.printf("%s, VOCÊ FICOU NA RECUPERAÇÃO DO SEMESTRE 1 COM MÉDIA: %.1f%n", nome, mediaSemestre1);
+					System.out.printf("%s, VOCÊ FICOU NA RECUPERAÇÃO DO SEMESTRE 1 COM MÉDIA: %.1f%n", nome, vet[i].mediaSemestre1());
 				}
 			}
 			
@@ -61,13 +60,25 @@ public class Principal_Aluno {
 			System.out.println("*** MÉDIA DO 2º SEMESTRE ***");
 			
 			for (int i = 0; i < num; i++) {
-				double mediaSemestre2 = (vet[i].getNota1_semestre_2() + vet[i].getNota2_semestre_2()) / 2;
-				if (mediaSemestre2 >= 7.0) {
+				if (vet[i].mediaSemestre2() >= 7.0) {
 					String nome = vet[i].getNome().toUpperCase();
-					System.out.printf("%s, VOCÊ ESTÁ APROVADO NO SEMESTRE 2 COM MÉDIA: %.1f%n", nome, mediaSemestre2);
+					System.out.printf("%s, VOCÊ ESTÁ APROVADO NO SEMESTRE 2 COM MÉDIA: %.1f%n", nome, vet[i].mediaSemestre2());
 				}else {
 					String nome = vet[i].getNome().toUpperCase();
-					System.out.printf("%s, VOCÊ FICOU NA RECUPERAÇÃO DO SEMESTRE 2 COM MÉDIA: %.1f%n", nome, mediaSemestre2);
+					System.out.printf("%s, VOCÊ FICOU NA RECUPERAÇÃO DO SEMESTRE 2 COM MÉDIA: %.1f%n", nome, vet[i].mediaSemestre2());
+				}
+			}
+			
+			System.out.println("--------------------------------------------------");
+			System.out.println("*** MÉDIA FINAL ***");
+			
+			for(int i = 0; i < num; i++) {
+				if(vet[i].mediaFinal() >= 7.0) {
+					String nome = vet[i].getNome().toUpperCase();
+					System.out.printf("%s, VOCÊ ESTÁ APROVADO DE ANO COM MÉDIA: %.1f%n", nome, vet[i].mediaFinal());
+				}else {
+					String nome = vet[i].getNome().toUpperCase();
+					System.out.printf("%s, VOCÊ FICOU NA RECUPERAÇÃO FINAL COM MÉDIA: %.1f%n", nome, vet[i].mediaFinal());
 				}
 			}
 			

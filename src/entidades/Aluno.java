@@ -61,6 +61,16 @@ public class Aluno {
 		this.nota2_semestre_2 = nota2_semestre_2;
 	}
 	
+	public double mediaSemestre1() {
+		return (nota1_semestre_1 + nota2_semestre_1) / 2;
+	}
 	
+	public double mediaSemestre2() {
+		return (nota1_semestre_2  + nota2_semestre_2) / 2;
+	}
+	
+	public double mediaFinal() {
+		return (mediaSemestre1() + mediaSemestre2()) / 2;
+	}
 
 }
